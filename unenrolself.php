@@ -42,11 +42,11 @@ require_login($course);
 $plugin = enrol_get_plugin('byauth');
 
 // security defined inside following function
-if (!$plugin->get_unenrolbyauth_link($instance)) {
+if (!$plugin->get_unenrolself_link($instance)) {
     redirect(new moodle_url('/course/view.php', array('id'=>$course->id)));
 }
 
-$PAGE->set_url('/enrol/byauth/unenrolbyauth.php', array('enrolid'=>$instance->id));
+$PAGE->set_url('/enrol/byauth/unenrolself.php', array('enrolid'=>$instance->id));
 $PAGE->set_title($plugin->get_instance_name($instance));
 
 if ($confirm and confirm_sesskey()) {
